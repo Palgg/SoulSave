@@ -22,10 +22,15 @@ def find_saves(stat_text, saves):
 	# look for dark souls 1 save
 	print("Finding save for Dark Souls 1")
 	docs_path = shell.SHGetFolderPath(0, shellcon.CSIDL_PERSONAL, None, 0)
-	ds1_save = Path(docs_path+"/nbgi/DRAKS0005.sl2")
-	if ds1_save.is_file():
+	ds1_save1 = Path(docs_path+"/nbgi/DRAKS0005.sl2")
+	ds1_save2 = Path(docs_path+"/nbgi/darksouls/DRAKS0005.sl2")
+	if ds1_save1.is_file():
 		print("Found save for Dark Souls 1")
-		saves[0] = ds1_save
+		saves[0] = ds1_save1
+		saves_found+=1
+	elif ds1_save2.is_file():
+		print("Found save for Dark Souls 1")
+		saves[0] = ds1_save2
 		saves_found+=1
 	else:
 		print("Could not find save for Dark souls 1")
